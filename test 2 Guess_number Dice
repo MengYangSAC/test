@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Guess_number_dice {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int dice_num;
+		int dice;
+		int guess;
+
+		System.out.printf("how many dices do you wish to throw\n");
+		dice = input.nextInt();
+		System.out.printf("please guess the total of all the dices");
+		guess = input.nextInt();
+		Dice die = new Dice(dice);
+
+		dice_num = die.Throw(dice);
+
+		if (guess == dice_num || guess >= (dice_num - (dice_num / 10))
+				&& guess <= (dice_num + (dice_num / 10))) {
+			System.out.printf("the comp total was %d\n", dice_num);
+			System.out.printf("your answer was %d\n", guess);
+			System.out.println("you win");
+		} else if (guess != dice_num) {
+			System.out.printf("the comp choose %d\n", dice_num);
+			System.out.printf("your answer was %d\n", guess);
+			System.out.printf("you lose");
+		}
+	}
+
+}
